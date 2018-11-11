@@ -9,12 +9,13 @@ Készítette: Berecz Ádám és Bossányi Máté
 ### Felhasználó
  - Játék indítása
  - Üzenetek küldése és fogadása
- - Saját profil szerkesztése
+ - Saját profil megtekintése, jármű választása
  - Korábbi játékai eredményének megtekintése
 ### Admin
  - Összes felhasználó megtekintése
  - Összes profil megtekintése
  - Összes korábbi játék megtekintése
+ - Felhasználó törlése, jogosultságának módosítása
 # Nem funkcionális követelmények
 - Felhasználóbarát, könnyen áttekinthető elrendezés és kinézet
 - Gyors működés
@@ -30,17 +31,15 @@ Készítette: Berecz Ádám és Bossányi Máté
 | USERNAME  | varchar | felhasználónév |
 | PASSWORD  | varchar | jelszó |
 | ROLE  | enum | ROLE_USER vagy ROLE_ADMIN |
+| HIGHSCORE  | int | legnagyobb elért pontszám |
 
-**PROFILE**
+**VEHICLES**
 
 | Oszlop | Tipus | Leiras |
 | ------------- | ------------- | ------------- |
 | ID  | int  | elsődleges kulcs |
-| NAME  | varchar | felhasználó neve |
-| EMAIL  | varchar | felhasználó email címe |
-| BIRTHDAY  | date | felhasználó születésnapja |
-| COUNTRY  | varchar | felhasználó lakóhelye |
-| CITY | varchar | felhasználó lakóhelye |
+| NAME  | varchar | jármű neve |
+| SCORE  | int | feloldáshoz szükséges pontszám |
 
 **SCORES**
 
@@ -83,10 +82,8 @@ Készítette: Berecz Ádám és Bossányi Máté
 | GET  | my/messages | Üzenetek |
 | GET  | my/messages/new | Üzenetküldő felület |
 | GET  | my/profile | Profil |
-| GET  | my/profile/edit | Profilszerkesztő felület |
 | GET  | my/games  | Korábbi játékok |
 | POST  | my/messages/new | Új üzenet adatainak küldése |
-| POST | my/profile/edit | Profil új adatainak küldése |
 
 ***ROLE_ADMIN***
 
