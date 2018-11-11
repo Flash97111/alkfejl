@@ -27,11 +27,9 @@ Készítette: Berecz Ádám és Bossányi Máté
 | ------------- |
 | *MESSAGES **-N--1-** USER* |
 | *SCORES **-N--1-** USER*  |
-| *UNLOCKED **-N--1-** USER* |
 | *VEHICLES **-N--N-** USER* |
-| *VEHICLES **-1--N-** UNLOCKED* |
 
-![alt text](https://github.com/Flash97111/alkfejl/blob/master/img/db.png)
+![alt text](https://github.com/Flash97111/alkfejl/blob/master/img/tables.png)
 **USER**
 
 | Oszlop | Tipus | Leiras |
@@ -49,15 +47,7 @@ Készítette: Berecz Ádám és Bossányi Máté
 | ID  | int  | elsődleges kulcs |
 | NAME  | varchar | jármű neve |
 | SCORE  | int | feloldáshoz szükséges pontszám |
-
-**UNLOCKED**
-
-| Oszlop | Tipus | Leiras |
-| ------------- | ------------- | ------------- |
-| ID  | int  | elsődleges kulcs |
-| USER_ID  | int | felhasználó ID-ja |
-| VEHICLE_ID | int | jármű ID-ja |
-| DATE | date | feloldás ideje |
+| FILENAME  | varchar | járműt tartalmazó fájl neve |
 
 **SCORES**
 
