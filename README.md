@@ -90,9 +90,8 @@ Készítette: Berecz Ádám és Bossányi Máté
 | Metódus | Request | Leírás |
 | ------------- | ------------- | ------------- |
 | GET  | my/messages | Üzenetek |
-| GET  | my/messages/new | Üzenetküldő felület |
 | GET  | my/scores | Korábbi játékok |
-| POST  | my/messages/new | Új üzenet adatainak küldése |
+| POST  | my/messages | Új üzenet adatainak küldése |
 
 ***ROLE_ADMIN***
 
