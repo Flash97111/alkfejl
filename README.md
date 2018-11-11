@@ -81,7 +81,7 @@ Készítette: Berecz Ádám és Bossányi Máté
 | ------------- | ------------- | ------------- |
 | GET  | / | Főoldal |
 | GET  | /register | Regisztációs felület |
-| GET  | /toplist  | Toplista |
+| GET  | /scores | Toplista |
 | POST  | /login | Bejelentkezési adatok küldése |
 | POST | /register | Regisztrációs adatok küldése |
 
@@ -91,8 +91,7 @@ Készítette: Berecz Ádám és Bossányi Máté
 | ------------- | ------------- | ------------- |
 | GET  | my/messages | Üzenetek |
 | GET  | my/messages/new | Üzenetküldő felület |
-| GET  | my/profile | Profil |
-| GET  | my/games  | Korábbi játékok |
+| GET  | my/scores | Korábbi játékok |
 | POST  | my/messages/new | Új üzenet adatainak küldése |
 
 ***ROLE_ADMIN***
@@ -101,9 +100,7 @@ Készítette: Berecz Ádám és Bossányi Máté
 | ------------- | ------------- | ------------- |
 | GET  | /users | Felhasználók |
 | GET  | /users/:ID: | Adott ID-jú felhasználó |
-| GET  | /games| Játékosok játékai |
-| GET  | /games/:ID: | Adott ID-jú felhasználó játékai |
-| GET  | /profile | Profilok |
-| GET  | /profile/:ID: | Adott ID-jú felhasználó profilje |
+| GET  | /scores| Játékosok játékai |
+| GET  | /scores/:ID: | Adott ID-jú felhasználó játékai |
 | PATCH  | /users/:ID: | Adott ID-jú felhasználó jogosultságának változtatása |
 | DELETE  | /users/:ID: | Felhasználó törlése |
