@@ -73,14 +73,13 @@ Készítette: Berecz Ádám és Bossányi Máté
 | DATE | date | levélírás ideje |
 
 ### Használati esetek
-![alt text](https://github.com/Flash97111/alkfejl/blob/master/img/usecase.png)
+![alt text](https://github.com/Flash97111/alkfejl/blob/master/img/use.png)
 ### Végpontok
 ***ROLE_GUEST***
 
 | Metódus | Request | Leírás |
 | ------------- | ------------- | ------------- |
 | GET  | / | Főoldal |
-| GET  | /register | Regisztációs felület |
 | GET  | /scores | Toplista |
 | POST  | /login | Bejelentkezési adatok küldése |
 | POST | /register | Regisztrációs adatok küldése |
@@ -91,7 +90,9 @@ Készítette: Berecz Ádám és Bossányi Máté
 | ------------- | ------------- | ------------- |
 | GET  | my/messages | Üzenetek |
 | GET  | my/scores | Korábbi játékok |
+| GET  | my/vehicles | Játékos járművei |
 | POST  | my/messages | Új üzenet adatainak küldése |
+| DELETE  | my/messages/:ID: | Adott ID-jú üzenet törlése |
 
 ***ROLE_ADMIN***
 
@@ -99,7 +100,8 @@ Készítette: Berecz Ádám és Bossányi Máté
 | ------------- | ------------- | ------------- |
 | GET  | /users | Felhasználók |
 | GET  | /users/:ID: | Adott ID-jú felhasználó |
-| GET  | /scores| Játékosok játékai |
-| GET  | /scores/:ID: | Adott ID-jú felhasználó játékai |
-| PATCH  | /users/:ID: | Adott ID-jú felhasználó jogosultságának változtatása |
+| GET  | /vehicles | Járművek |
+| PUT  | /users/:ID: | Adott ID-jú felhasználó jogosultságának változtatása |
+| POST  | /vehicles | Új jármű létrehozása |
+| DELETE | /vehicles/:ID: | Adott ID-jú jármű törlése |
 | DELETE  | /users/:ID: | Felhasználó törlése |
