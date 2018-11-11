@@ -22,6 +22,15 @@ Készítette: Berecz Ádám és Bossányi Máté
 - Biztonságos működés
 # Funkcionális követelmények
 ### Adatbázis
+
+| Kapcsolatok |
+| ------------- |
+| *MESSAGES **-N--1-** USER* |
+| *SCORES **-N--1-** USER*  |
+| *UNLOCKED **-N--1-** USER* |
+| *VEHICLES **-N--N-** USER* |
+| *VEHICLES **-1--N-** UNLOCKED* |
+
 ![alt text](https://github.com/Flash97111/alkfejl/blob/master/img/db.png)
 **USER**
 
@@ -41,11 +50,21 @@ Készítette: Berecz Ádám és Bossányi Máté
 | NAME  | varchar | jármű neve |
 | SCORE  | int | feloldáshoz szükséges pontszám |
 
+**UNLOCKED**
+
+| Oszlop | Tipus | Leiras |
+| ------------- | ------------- | ------------- |
+| ID  | int  | elsődleges kulcs |
+| USER_ID  | int | felhasználó ID-ja |
+| VEHICLE_ID | int | jármű ID-ja |
+| DATE | date | feloldás ideje |
+
 **SCORES**
 
 | Oszlop | Tipus | Leiras |
 | ------------- | ------------- | ------------- |
-| USERNAME  | varchar  | felhasználónév |
+| ID  | int  | elsődleges kulcs |
+| USER_ID  | int  | felhasználó ID-ja |
 | SCORE | int | elért pontszám |
 | DATE | date | játék ideje |
 
@@ -56,8 +75,8 @@ Készítette: Berecz Ádám és Bossányi Máté
 | Oszlop | Tipus | Leiras |
 | ------------- | ------------- | ------------- |
 | ID  | int  | elsődleges kulcs |
-| SENDER  | varchar | küldő felhasználóneve |
-| RECEIVER | varchar | címzett felhasználóneve |
+| SENDER_ID  | int | küldő ID-ja |
+| RECEIVER_ID | int | címzett ID-ja |
 | TITLE | varchar | üzenet tárgya |
 | MESSAGE | varchar | üzenet szövege |
 | OPENED | boolean | elolvasta-e a címzett |
