@@ -61,6 +61,7 @@ Készítette: Berecz Ádám és Bossányi Máté
 | TITLE | varchar | üzenet tárgya |
 | MESSAGE | varchar | üzenet szövege |
 | OPENED | boolean | elolvasta-e a címzett |
+| DATE | date | levélírás ideje |
 
 ### Használati esetek
 ![alt text](https://github.com/Flash97111/alkfejl/blob/master/img/usecase.png)
