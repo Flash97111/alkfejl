@@ -42,7 +42,7 @@ public class MessagesController {
     
     //Saját üzenetek
     @GetMapping("/my/{userID}")
-    public ResponseEntity getMy(@PathVariable Integer userID) {
+    public ResponseEntity<Iterable<Messages>> getMy(@PathVariable Integer userID) {
         Optional<Messages> oMessages = messagesRepository.findByReceiver_id(userID);
         if (!oMessages.isPresent()) {
             return ResponseEntity.notFound().build();   
