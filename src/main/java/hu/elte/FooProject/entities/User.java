@@ -53,7 +53,6 @@ public class User implements Serializable {
     @NotNull
     private Integer highscore;
     
-    @JsonIgnore
     @ManyToMany(mappedBy = "users")
     private List<Vehicles> vehicles;
     
