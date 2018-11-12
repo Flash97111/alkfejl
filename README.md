@@ -88,10 +88,10 @@ Készítette: Berecz Ádám és Bossányi Máté
 
 | Metódus | Request | Leírás |
 | ------------- | ------------- | ------------- |
-| GET  | messages/my | Üzenetek |
-| GET  | scores/my | Korábbi játékok |
-| GET  | vehicles/my | Játékos járművei |
-| POST  | messages/my | Új üzenet adatainak küldése |
+| GET  | messages/my/:userID: | Üzenetek |
+| GET  | scores/:id: | Korábbi játékok |
+| GET  | vehicles/my/:userID: | Játékos járművei |
+| POST  | messages/my/:userID: | Új üzenet adatainak küldése |
 | DELETE  | messages/my/:ID: | Adott ID-jú üzenet törlése |
 
 ***ROLE_ADMIN***
