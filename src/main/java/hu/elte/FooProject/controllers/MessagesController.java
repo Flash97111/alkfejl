@@ -35,12 +35,24 @@ public class MessagesController {
     
     //Üzenetek
     @GetMapping("")
+    @Secured({ "ROLE_ADMIN" })
     public ResponseEntity<Iterable<Messages>> getAll() {
         return ResponseEntity.ok(messagesRepository.findAll());
     }
     
+    //Saját üzenetek
+    @GetMapping("/my/{userID}")
+    public ResponseEntity getMy(@PathVariable Integer userID) {
+        Optional<Messages> oMessages = messagesRepository.findByReceiver_id(userID);
+        if (!oMessages.isPresent()) {
+            return ResponseEntity.notFound().build();   
+        }
+            
+        return ResponseEntity.ok(oMessages.get());
+    }
+    
     //Adott ID-jú üzenet törlése, ha van ilyen
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/my/{id}")
     public ResponseEntity delete(@PathVariable Integer id) {
         Optional<Messages> oMessages = messagesRepository.findById(id);
         if (!oMessages.isPresent()) {
@@ -52,8 +64,8 @@ public class MessagesController {
     }
     
     //Üzenet küldése adott felhasználónak, ha van ilyen
-    @PostMapping("")
-    public ResponseEntity<Messages> post(@RequestBody Messages message) {
+    @PostMapping("/my/{userID}")
+    public ResponseEntity<Messages> post(@RequestBody Messages message, @PathVariable Integer userID) {
         Optional<User> oUser = userRepository.findById(message.getReceiver_id());
         if (!oUser.isPresent()) {
             return ResponseEntity.notFound().build();   
@@ -62,6 +74,7 @@ public class MessagesController {
         message.setOpened(false);
         Date date = new Date();
         message.setDate(date);
+        message.setSender_id(userID);
         return ResponseEntity.ok(messagesRepository.save(message));
     }
 }
