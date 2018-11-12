@@ -6,6 +6,8 @@
 package hu.elte.FooProject.controllers;
 import hu.elte.FooProject.entities.Vehicles;
 import hu.elte.FooProject.repositories.VehiclesRepository;
+import hu.elte.FooProject.entities.User;
+import hu.elte.FooProject.repositories.UserRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,12 +30,24 @@ import org.springframework.web.bind.annotation.RestController;
 public class VehiclesController {
     @Autowired
     private VehiclesRepository vehiclesRepository;
+    @Autowired
+    private UserRepository userRepository;
     
     //Járművek
     @GetMapping("")
     @Secured({ "ROLE_ADMIN" })
     public ResponseEntity<Iterable<Vehicles>> getAll() {
         return ResponseEntity.ok(vehiclesRepository.findAll());
+    }
+    
+    //Saját járművek
+    @GetMapping("/my/{userID}")
+    public ResponseEntity<Iterable<User>> getMy(@PathVariable Integer userID) {
+        Optional<User> oUser = userRepository.findById(userID);
+        if (!oUser.isPresent()) {
+            return ResponseEntity.notFound().build();   
+        }
+        return ResponseEntity.ok(oUser.get());
     }
     
     //Adott ID-jú jármű törlése, ha van ilyen
